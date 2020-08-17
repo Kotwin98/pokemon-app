@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import '../styles/pokemon.scss';
 
 class Pokemon extends Component {
     state = {
+        name: this.props.pokemonName,
         url: this.props.pokemonUrl,
         height: '',
         weight: ''
@@ -20,19 +22,15 @@ class Pokemon extends Component {
     }
 
     render() {
-        const name = this.props.pokemonName;
-        // const url = this.props.pokemonUrl;
+        const pokemonIndex = this.state.url.split('/')[this.state.url.split('/').length - 2];
 
-        // const pokemonIndex = url.split('/')[url.split('/').length - 2];
-        // const pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonIndex}/`;
-
-        // const pokemonInfo = axios.get(pokemonUrl);
         return (
-            <div>
-                <h1>{name}</h1>
-                <p>{this.state.height}</p>
-                <p>{this.state.weight}</p>
-                {/* <h3>{pokemonInfo}</h3> */}
+            <div className="pokemon-container">
+                <h1 className="pokemon-title">{this.state.name} {pokemonIndex}</h1>
+                <div className="pokemon-info-container">
+                    <p className="pokemon-info">Height: {this.state.height}</p>
+                    <p className="pokemon-info">Weight: {this.state.weight}</p>
+                </div>
             </div>
         );
     }
