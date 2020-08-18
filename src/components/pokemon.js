@@ -7,7 +7,7 @@ class Pokemon extends Component {
         name: this.props.pokemonName,
         url: this.props.pokemonUrl,
         height: '',
-        weight: ''
+        weight: '',
     }
 
     componentDidMount() {
@@ -24,9 +24,14 @@ class Pokemon extends Component {
     render() {
         const pokemonIndex = this.state.url.split('/')[this.state.url.split('/').length - 2];
 
+        const imageUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${pokemonIndex}.png?raw=true`;
+
         return (
             <div className="pokemon-container">
                 <h1 className="pokemon-title">{this.state.name} {pokemonIndex}</h1>
+                <div className="pokemon-img">
+                    <img src={imageUrl} />
+                </div>
                 <div className="pokemon-info-container">
                     <p className="pokemon-info">Height: {this.state.height}</p>
                     <p className="pokemon-info">Weight: {this.state.weight}</p>
