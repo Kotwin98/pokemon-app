@@ -21,6 +21,10 @@ class Pokemon extends Component {
             })
     }
 
+    capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
     render() {
         const pokemonIndex = this.state.url.split('/')[this.state.url.split('/').length - 2];
 
@@ -28,7 +32,7 @@ class Pokemon extends Component {
 
         return (
             <div className="pokemon-container">
-                <h1 className="pokemon-title">{this.state.name} {pokemonIndex}</h1>
+                <h1 className="pokemon-title">{this.capitalizeFirstLetter(this.state.name)} {pokemonIndex}</h1>
                 <div className="pokemon-img">
                     <img src={imageUrl} />
                 </div>
