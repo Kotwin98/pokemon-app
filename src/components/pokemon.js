@@ -32,7 +32,7 @@ class Pokemon extends Component {
 
         return (
             <div className="pokemon-container">
-                <h1 className="pokemon-title">{this.capitalizeFirstLetter(this.state.name)} {pokemonIndex}</h1>
+                <h1 className="pokemon-title">{pokemonIndex}. {this.capitalizeFirstLetter(this.state.name)}</h1>
                 <div className="pokemon-img">
                     <img src={imageUrl} />
                 </div>
