@@ -47,7 +47,7 @@ class PokemonList extends Component {
 
     render() {
         return (
-            <div>
+            <div className="pokemonList-container">
                 <div className="pokemon-cards">
                     {
                         this.state.pokemons.map(pokemon => (
@@ -55,8 +55,8 @@ class PokemonList extends Component {
                         ))
                     }
                 </div>
-                <button onClick={this.prevPage}>Prev</button>
-                <button onClick={this.nextPage}>Next</button>
+                <button className="pagination-button" onClick={this.prevPage}>Prev</button>
+                <button className="pagination-button" onClick={this.nextPage}>Next</button>
             </div>
         )
     }
