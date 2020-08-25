@@ -7,7 +7,6 @@ import '../styles/pokemonList.scss';
 class PokemonList extends Component {
     state = {
         pokemons: [],
-        limit: 20,
         offset: 0
     };
     
@@ -15,7 +14,6 @@ class PokemonList extends Component {
         axios.get("https://pokeapi.co/api/v2/pokemon/")
             .then(response => {
                 this.setState({pokemons: response.data.results})
-                console.log(this.state)
             })
             .catch((error) => {
             console.log(error);
@@ -27,10 +25,8 @@ class PokemonList extends Component {
             .then(response => {
                 this.setState({
                     pokemons: response.data.results,
-                    // limit: + 20,
                     offset: this.state.offset + 20
                 })
-                console.log(this.state.limit, this.state.offset)
             })
     }
 
@@ -41,7 +37,6 @@ class PokemonList extends Component {
                     pokemons: response.data.results,
                     offset: this.state.offset - 20
                 })
-                console.log(this.state.limit, this.state.offset)
             })
     }
 
