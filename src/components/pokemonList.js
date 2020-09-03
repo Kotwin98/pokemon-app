@@ -46,7 +46,11 @@ class PokemonList extends Component {
                 <div className="pokemon-cards">
                     {
                         this.state.pokemons.map(pokemon => (
-                            <Pokemon pokemonName={pokemon.name} pokemonUrl={pokemon.url} key={pokemon.name} />
+                            <Pokemon 
+                                pokemonName={pokemon.name} 
+                                pokemonUrl={pokemon.url} 
+                                key={pokemon.name} 
+                            />
                         ))
                     }
                 </div>
