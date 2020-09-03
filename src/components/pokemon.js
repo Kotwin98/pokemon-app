@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import Spinner from '../components/features/Spinner/Spinner';
@@ -37,14 +38,9 @@ class Pokemon extends Component {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
-    
-
     render() {
-        // const pokemonIndex = this.state.url.split('/')[this.state.url.split('/').length - 2];
-
-        // const imageUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${this.state.pokemonIndex}.png?raw=true`;
-
         return (
+            <Link to={`/single-card/${this.state.pokemonIndex}`} key={this.state.pokemonIndex}>
             <div className="pokemon-container">
                 <h1 className="pokemon-title">{this.state.pokemonIndex}. {this.capitalizeFirstLetter(this.state.name)}</h1>
                 <div className="pokemon-img">
@@ -55,6 +51,7 @@ class Pokemon extends Component {
                     <p className="pokemon-info">Weight: {this.state.weight}</p>
                 </div>
             </div>
+            </Link>
         );
     }
 };
